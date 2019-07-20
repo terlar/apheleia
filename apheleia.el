@@ -293,7 +293,7 @@ provided that its exit status is 0."
             (process-send-string
              apheleia--current-process
              (with-current-buffer stdin
-               (buffer-string))))
+               (buffer-substring-no-properties (point-min) (point-max)))))
           (process-send-eof apheleia--current-process))
       (error (message "Failed to run %s: %s" name (error-message-string e))))))
 
